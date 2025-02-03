@@ -32,36 +32,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Kalkulator PHP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 400px;
+        }
+        .card {
+            padding: 15px;
+        }
+        .form-control, .form-select {
+            font-size: 14px;
+        }
+        .btn {
+            width: 100%;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Kalkulator Sederhana</h2>
-    <form method="post">
-        <div>
-            <label>Angka Pertama</label>
-            <input type="text" name="num1" required>
-        </div>
-        <div>
-            <label>Operator</label>
-            <select name="operator" required>
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-            </select>
-        </div>
-        <div>
-            <label>Angka Kedua</label>
-            <input type="text" name="num2" required>
-        </div>
-        <div>
-            <button type="submit">Hitung</button>
-        </div>
-    </form>
-
-    <?php if (isset($result)) { ?>
-        <div margin-top: 20px;">
-            <strong>Hasil: <?php echo $result; ?></strong>
-        </div>
-    <?php } ?>
+    <div class="container mt-5">
+        <h2 class="text-center">Kalkulator Sederhana</h2>
+        <form method="post" class="card">
+            <div class="mb-3">
+                <label class="form-label">Angka Pertama</label>
+                <input type="text" name="num1" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Operator</label>
+                <select name="operator" class="form-select" required>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </div>  
+            <div class="mb-3">
+                <label class="form-label">Angka Kedua</label>
+                <input type="text" name="num2" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-dark">Hitung</button>
+        </form>
+        <?php if (isset($result)) { ?>
+            <div class="alert alert-info mt-3">Hasil: <?php echo $result; ?></div>
+        <?php } ?>
+    </div>
 </body>
 </html>
